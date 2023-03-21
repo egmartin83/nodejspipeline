@@ -13,7 +13,7 @@ node ('jenkins-agent'){
   }                 
    stage('Docker Build & Push') {
       sh 'pwd'
-      sh 'ls ~'
+      sh 'ls ~/agent'
       //sh 'docker --version'
    }
 }
