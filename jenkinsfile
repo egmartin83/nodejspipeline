@@ -19,12 +19,13 @@ node {
           // top-level of the Pipeline, in the same workspace,
            // rather than on a new node entirely:
             reuseNode true
-        }
+			}
        step{ 
          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
          def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
          nuestraapp.push()
          }
-     }
-   }
+		}
+	  }
+	}
 }
