@@ -1,4 +1,4 @@
-node {
+node ('docker') {
    def gitcommit
    stage('Verificación SCM') {
      checkout scm
