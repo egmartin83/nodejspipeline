@@ -16,7 +16,7 @@ pipeline {
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
                 sh '''
                     ls -l
-                    cd  / 
+                    cd  /bin 
                     ls -l
                   '''
                   sh 'docker --version'
