@@ -12,13 +12,7 @@ node ('jenkins-agent'){
      }
   // }                 
    stage('Docker Build & Push') {
-        agent {
-            label "jenkins-agent"
-       }
-    // docker-inst.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-    //  def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
-    //  nuestraapp.push()
       sh 'pwd'
-     }
+     
    }
 }
