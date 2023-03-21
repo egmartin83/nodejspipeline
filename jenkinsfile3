@@ -18,7 +18,7 @@ pipeline {
                     ls -l
                     cd  /bin 
                     ls -l
-                    echo  $PATH
+                    echo  ${dockerHome}
                   '''
                   sh 'docker --version'
      
