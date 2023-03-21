@@ -1,4 +1,4 @@
-node ('jenkins-agent'){
+node {
    def gitcommit
    stage('Verificacion SCM') {
      checkout scm
@@ -14,6 +14,9 @@ node ('jenkins-agent'){
      }
    }                   
    stage('Docker Build & Push') {
+        agent {
+            label "jenkins-agent"
+       }
      docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
       def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
       nuestraapp.push()
