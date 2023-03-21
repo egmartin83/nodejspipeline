@@ -5,7 +5,7 @@ pipeline {
             agent {
                 docker {
                 // Set both label and image
-                label 'jenkins-agent''
+                label 'jenkins-agent'
                 //image 'node:7-alpine'
                 args '--name docker' // list any args
                 }
