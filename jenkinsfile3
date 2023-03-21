@@ -18,6 +18,7 @@ pipeline {
                     ls -l
                     cd  /bin 
                     ls -l
+                    echo  $PATH
                   '''
                   sh 'docker --version'
      
