@@ -11,21 +11,17 @@ node {
        sh 'npm test'
      }
    }
-   stage('Docker Build & Push') {
-      agent {
-        docker {
-          image 'gradle:6.7-jdk11'
-           // Run the container on the node specified at the
-          // top-level of the Pipeline, in the same workspace,
-           // rather than on a new node entirely:
-            reuseNode true
-			}
-       step{ 
-         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-         def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
-         nuestraapp.push()
+   stage('Build') { 
+       steps { 
+         script{
+               app = docker.build("nodejspipeline")
          }
-		}
-	  }
-	}
+       }
+   }
+   stage('Docker Build & Push') {
+         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+         	def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
+         	nuestraapp.push()
+         }
+   }	 
 }
