@@ -20,9 +20,11 @@ node {
            // rather than on a new node entirely:
             reuseNode true
         }
-     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-      def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
-      nuestraapp.push()
+       step{ 
+         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+         def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
+         nuestraapp.push()
+         }
      }
    }
 }
