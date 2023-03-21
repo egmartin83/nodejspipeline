@@ -10,7 +10,6 @@ pipeline {
             }
         }
         stage('build') {
-             agent {label 'jenkins-agent' }
             steps {
                 // Get some code from a GitHub repository
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
