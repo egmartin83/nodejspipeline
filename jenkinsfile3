@@ -1,6 +1,6 @@
 pipeline {
     agent {label 'jenkins-agent' }
-    agent any
+    //agent any
     stages {
         stage('Initialize') {
             steps {
