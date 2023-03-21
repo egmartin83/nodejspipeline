@@ -6,7 +6,7 @@ pipeline {
                 script {
                     def dockerHome = tool 'docker-inst'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    //env.DOCKER_HOST = 'tcp://192.168.49.2:2376'
+                    env.DOCKER_HOST = 'tcp://192.168.49.2:2376'
                 }
             }
         }
