@@ -4,7 +4,7 @@ pipeline {
         stage('Initialize') {
             steps {
                 script {
-                    def dockerHome = tool 'docker-inst'
+                    def dockerHome = tool 'jenkins-agent'
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                 }
             }
