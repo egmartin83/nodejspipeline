@@ -1,16 +1,24 @@
 pipeline {
-    agent {label 'jenkins-agent'}
+    agent {label 'jenkins-agent' }
     stages {
+        stage('Initialize') {
+            steps {
+                script {
+                    def dockerHome = tool 'docker-inst'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                    env.DOCKER_HOST = 'tcp://192.168.49.2:2376'
+                }
+            }
+        }
         stage('build') {
             steps {
-  
+             agent {label 'jenkins-agent' }
                 // Get some code from a GitHub repository
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
                 sh 'ls -l'
-                sh 'hostname'
                 sh 'docker --version'
      
-            //            sh 'docker build -t nodejsapp:latest .'
+                        sh 'docker build -t nodejsapp:latest .'
                     
                 
             }
