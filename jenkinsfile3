@@ -19,7 +19,7 @@ pipeline {
                     cd  $PEPE/bin
                     ls  -l
                     cd /
-                    find .  -name ca.pem
+                   echo $DOCKER_CERT_PATH 
                   '''
                   sh 'docker --version'
      
