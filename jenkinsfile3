@@ -15,7 +15,7 @@ node ('jenkins-agent'){
         agent {
             label "jenkins-agent"
        }
-     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+     docker-inst.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
       def nuestraapp = docker.build("egmartin83/nodejsapp:${gitcommit}", ".")
       nuestraapp.push()
      }
