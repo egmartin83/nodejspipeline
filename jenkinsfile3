@@ -5,6 +5,7 @@ pipeline {
             steps {
                 script {
                     def dockerHome = tool 'docker-inst'
+                    env.PEPE  =  "${dockerHome}/bin"
                     env.PATH = "${dockerHome}/bin:${env.PATH}"
                     //env.DOCKER_HOST = 'tcp://192.168.49.2:2376'
                 }
@@ -18,7 +19,7 @@ pipeline {
                     ls -l
                     cd  /bin 
                     ls -l
-                    echo  ${dockerHome}
+                    echo  $PEPE
                   '''
                   sh 'docker --version'
      
