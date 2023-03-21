@@ -1,4 +1,4 @@
-node {
+node ('jenkins-agent'){
    def gitcommit
    stage('Verificacion SCM') {
      checkout scm
