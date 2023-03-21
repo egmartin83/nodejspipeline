@@ -13,8 +13,8 @@ node ('jenkins-agent'){
   }                 
    stage('Docker Build & Push') {
       sh 'pwd'
-      sh 'cd'
-      sh 'find /home/jenkins/agent/workspace/asdfasdasdasd -name docker'
+      sh 'cd /home/jenkins/agent'
+      sh 'ls /bin/local/usr'
       //sh 'docker --version'
      
    }
