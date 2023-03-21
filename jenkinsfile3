@@ -1,6 +1,7 @@
-node ('jenkins-agent'){
- stages{
-    stage('Initialize') {
+pipeline {
+    agent {label 'jenkins-agent' }
+    stages {
+        stage('Initialize') {
             steps {
                 script {
                     def dockerHome = tool 'docker-inst'
@@ -8,24 +9,10 @@ node ('jenkins-agent'){
                 }
             }
         }
-   def gitcommit
-   stage('Verificacion SCM') {
-     checkout scm
-     sh "git rev-parse --short HEAD > .git/commit-id"
-     gitcommit = readFile('.git/commit-id').trim()
-   }
-   stage('test') {
-  //   nodejs(nodeJSInstallationName: 'nodejs') {
-  //     sh 'npm install --only=dev'
-  //     sh 'npm test'
-  //   }
-  }                 
-   stage('Docker Build & Push') {
-      sh 'pwd'
-      sh 'hostname' 
-      sh 'ls ~/agent/workspace/asdfasdasdasd'
-      sh 'ls ~/agent/workspace/asdfasdasdasd@tmp'
-      //sh 'docker --version'
-   }
- }
+        stage('build') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+    }
 }
