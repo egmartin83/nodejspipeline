@@ -16,11 +16,10 @@ pipeline {
                 // Get some code from a GitHub repository
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
                 sh '''
-                    ls -l
-                    cd  /bin 
-                    ls -l
                     cd  $PEPE/bin
                     ls  -l
+                    cd /
+                    find .  -name ca.pem
                   '''
                   sh 'docker --version'
      
