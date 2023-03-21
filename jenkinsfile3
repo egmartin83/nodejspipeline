@@ -11,7 +11,9 @@ pipeline {
         }
         stage('build') {
             steps {
+                git 'https://github.com/egmartin83/nodejspipeline.git'
                 sh 'docker --version'
+                sh 'docker build -t appNodeJS:latest .'
             }
         }
     }
