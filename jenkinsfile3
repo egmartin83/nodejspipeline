@@ -19,7 +19,7 @@ pipeline {
                     ls -l
                     cd  /bin 
                     ls -l
-                    cd  $PEPE
+                    cd  $PEPE/bin
                     ls  -l
                   '''
                   sh 'docker --version'
