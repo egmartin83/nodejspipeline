@@ -2,6 +2,14 @@ pipeline {
     agent {label 'jenkins-agent'}
     stages {
         stage('build') {
+            agent {
+                docker {
+                // Set both label and image
+                label 'jenkins-agent''
+                //image 'node:7-alpine'
+                args '--name docker' // list any args
+                }
+            }
             steps {
   
                 // Get some code from a GitHub repository
