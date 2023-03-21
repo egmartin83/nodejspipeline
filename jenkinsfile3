@@ -15,7 +15,7 @@ pipeline {
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
                  sh 'ls -l'
                 sh 'docker --version'
-               // sh 'docker build -t appNodeJS:latest .'
+                sh 'docker build -t appNodeJS:latest .'
             }
         }
     }
