@@ -15,7 +15,7 @@ node ('jenkins-agent'){
       docker('docker') {
       sh 'pwd'
       sh 'cd /home/jenkins/agent'
-      sh 'ls /bin/local/usr'
+      sh 'ls /bin'
       //sh 'docker --version'
      }
    }
