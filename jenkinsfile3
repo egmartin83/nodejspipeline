@@ -2,15 +2,6 @@ pipeline {
     agent {label 'jenkins-agent' }
     //agent any
     stages {
-        stage('Initialize') {
-            steps {
-                script {
-                    def dockerHome = tool 'docker-inst'
-                    env.PATH = "${dockerHome}/bin:${env.PATH}"
-                    //env.DOCKER_HOST = 'tcp://192.168.49.2:2376'
-                }
-            }
-        }
         stage('build') {
             steps {
                 // Get some code from a GitHub repository
