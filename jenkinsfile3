@@ -1,4 +1,13 @@
 node ('jenkins-agent'){
+ stages{
+    stage('Initialize') {
+            steps {
+                script {
+                    def dockerHome = tool 'docker-inst'
+                    env.PATH = "${dockerHome}/bin:${env.PATH}"
+                }
+            }
+        }
    def gitcommit
    stage('Verificacion SCM') {
      checkout scm
@@ -18,4 +27,5 @@ node ('jenkins-agent'){
       sh 'ls ~/agent/workspace/asdfasdasdasd@tmp'
       //sh 'docker --version'
    }
+ }
 }
