@@ -13,9 +13,14 @@ pipeline {
             steps {
                 // Get some code from a GitHub repository
                 git url: 'https://github.com/egmartin83/nodejspipeline.git', branch: 'main'
-                 sh 'ls -l'
+                sh 'ls -l'
                 sh 'docker --version'
-                sh 'docker build -t nodejsapp:latest .'
+
+                docker.withServer('tcp://192.168.49.2:2376', '3c1cb828-0a01-48b0-8522-9cde5b1cfb00') {
+     
+                        sh 'docker build -t nodejsapp:latest .'
+                    
+                }
             }
         }
     }
